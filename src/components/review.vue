@@ -115,7 +115,7 @@ export default {
  },
  computed:{
 			isFullCheck(){
-				return this.userlist.length===this.checkedCount&&this.userlist.length!=0
+				return this.userlist.every(x => x.select)
 			}
 		},
     watch:{
@@ -124,13 +124,13 @@ export default {
       }
     },
  methods:{
-     changeState(e){
-         if(e==true){
-             this.checkedCount++;
-         }
-     },
+    //  changeState(e){
+    //      if(e==true){
+    //          this.checkedCount++;
+    //      }
+    //  },
      changeAllState(){
-         this.checkedCount=0
+        //  this.checkedCount=0
        this.userlist.forEach(i=>i.select=this.select)  
      },
      async reset () {
@@ -141,7 +141,7 @@ export default {
           }
       })
     this.getUserList()
-    this.checkedCount=0
+    // this.checkedCount=0
      this.select=false
     }, 
     async toQuery () {
@@ -153,7 +153,7 @@ export default {
           }
       })
     this.getUserList()
-    this.checkedCount=0
+    // this.checkedCount=0
      this.select=false
     }, 
     async resetData () {
@@ -164,7 +164,7 @@ export default {
           }
       })
     this.getUserList()
-    this.checkedCount=0
+    // this.checkedCount=0
      this.select=false
     },
      //获取用户列表
